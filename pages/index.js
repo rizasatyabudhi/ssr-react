@@ -5,13 +5,14 @@ import Link from 'next/link'
 
 export default class extends React.Component {
   static async getInitialProps () {
-    const res = await fetch('https://api.github.com/repos/rizasatyabudhi/GraphQL-Authentication')
+    const res = await fetch('https://geek-jokes.sameerkumar.website/api')
     const json = await res.json()
-    return { stars: json.stargazers_count, repo: json.name, author:json.owner.login, link: json.html_url }
+    return { joke: json }
   }
 
 
   render() {
+    console.log(this.props.joke);
     return (
       <div>
         <Head>
@@ -22,10 +23,9 @@ export default class extends React.Component {
           <meta property='og:url' content='https://www.go-life.co.id/' />
           <meta property='og:description' content='Aplikasi penyedia jasa layanan gaya hidup dengan 1 Juta pengguna di 16 kota. Temukan layanan pijat, kebersihan, mekanik, kecantikan, laundry, dan lainnya.' />
         </Head>
-        Repo Name   :{this.props.repo} <br />
-        Stars Count :{this.props.stars} <br />
-        Author      :{this.props.author} <br />
-        Repo Link   : <a href={this.props.link} target="_blank">{this.props.link}</a> <br />
+        <b>Today's Joke : </b> {this.props.joke}
+
+        <br />
         <Link href="/riza">
         <a>riza</a>
       </Link>
