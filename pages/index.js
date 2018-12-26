@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 import 'isomorphic-unfetch'
-
+import Link from 'next/link'
 
 export default class extends React.Component {
   static async getInitialProps () {
@@ -25,7 +25,10 @@ export default class extends React.Component {
         Repo Name   :{this.props.repo} <br />
         Stars Count :{this.props.stars} <br />
         Author      :{this.props.author} <br />
-        Repo Link   : <a href={this.props.link} target="_blank">{this.props.link}</a>
+        Repo Link   : <a href={this.props.link} target="_blank">{this.props.link}</a> <br />
+        <Link href="/riza">
+        <a>riza</a>
+      </Link>
       </div>
     )
   }
